@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./scripts/angular.js"></script>
+    <script src="./scripts/nested-repeat.js"></script>
+</head>
+
+<body ng-app="nestedRepeatModule">
+    <div ng-controller="nestedRepeatController">
+        <ul ng-repeat = "country in countries">
+            <li>
+                {{country.name}} - Index {{$index}}
+            </li>
+            <ul ng-repeat = "city in country.cities">
+                <li>
+                    {{city.name}} - Index {{$index}} - ParentIndex {{$parent.$index}}
+                </li>
+            </ul>
+        </ul>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./scripts/angular.js"></script>
+    <script src="./scripts/filterDemo.js"></script>
+    <title>Document</title>
+    <style>
+        .heading-item,.body-item{
+            text-align: center;
+            padding: 0 8px;
+        }
+    </style>
+</head>
+<body ng-app= "filterApp">
+    <div ng-controller="filterDemo">
+        Show: <input type="number" ng-model="limitRow"/>
+        <table class="table">
+          <tr class="heading">
+            <td class="heading-item">Name</td>
+            <td class="heading-item">Date of Birth</td>
+            <td class="heading-item">Salary</td>
+            <td class="heading-item">Gender</td>
+            <td class="heading-item">Status</td>
+          </tr>
+          <tr ng-repeat="employee in employees | limitTo:limitRow">
+            <td class="body-item">{{employee.name | uppercase}}</td>
+            <td class="body-item">{{employee.birthDate | date:"dd/MM/yyyy"}}</td>
+            <td class="body-item">{{employee.salary | currency:""}}</td>
+            <td class="body-item">{{employee.gender | lowercase}}</td>
+            <td class="body-item">{{employee.status | status}}</td>
+          </tr>
+        </table>
+      </div>
+</body>
+</html>
