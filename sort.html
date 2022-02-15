@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./scripts/angular.js"></script>
+    <script src="./scripts/sort.js"></script>
+    <title>Document</title>
+    <style>
+        .heading-item,.body-item{
+            text-align: center;
+            padding: 0 8px;
+        }
+    </style>
+</head>
+<body ng-app="sortApp">
+    <div ng-controller="sortDemo">
+      Show: <input type="number" ng-model="limitRow"/>
+      Show: <select ng-model="sortColumn">
+        <option value="name">Name ASC</option>
+        <option value="birthDate">Date of Birth ASC</option>
+        <option value="name">Salary ASC</option>
+        <option value="-name">Name DESC</option>
+        <option value="-birthDate">Date of Birth DESC</option> 
+        <option value="-salary">Salary DESC</option>
+      </select>
+      <table class="table">
+        <tr>
+          <td class="heading-item">Name</td>
+          <td class="heading-item">Date of Birth</td>
+          <td class="heading-item">Salary</td>
+          <td class="heading-item">Gender</td>
+          <td class="heading-item">Status</td>
+        </tr>
+        <tr ng-repeat="employee in employees | orderBy:sortColumn | limitTo:limitRow">
+          <td class="body-item">{{employee.name }}</td>
+          <td class="body-item">{{employee.birthDate }}</td>
+          <td class="body-item">{{employee.salary }}</td>
+          <td class="body-item">{{employee.gender }}</td>
+          <td class="body-item">{{employee.status }}</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

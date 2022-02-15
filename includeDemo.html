@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+  <!-- Latest compiled and minified CSS -->
+  <script src="./scripts/angular.js"></script>
+  <script src="./scripts/include-demo.js"></script>
+  <style>
+    .heading-item,.body-item{
+        text-align: center;
+        padding: 0 8px;
+    }
+</style>
+
+</head>
+<body ng-app="includeApp">
+  <div ng-controller="includeDemo">
+    Select view:
+    <select ng-model="employeeView" >
+      <option value="./tableEmployee.html">Table</option>
+      <option value="./listEmployee.html">List</option>
+    </select>
+    <div ng-include="employeeView"></div>
+  </div>
+</body>
+</html>

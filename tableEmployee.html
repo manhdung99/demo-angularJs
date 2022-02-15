@@ -1,0 +1,16 @@
+<table class="table">
+    <tr>
+      <td  class="heading-item">Name</td>
+      <td  class="heading-item">Date of Birth</td>
+      <td  class="heading-item">Salary</td>
+      <td  class="heading-item">Gender</td>
+      <td  class="heading-item">Status</td>
+    </tr>
+    <tr ng-repeat="employee in employees ">
+      <td   class="body-item">{{employee.name }}</td>
+      <td  class="body-item">{{employee.birthDate }}</td>
+      <td  class="body-item">{{employee.salary }}</td>
+      <td  class="body-item">{{employee.gender }}</td>
+      <td  class="body-item">{{employee.status}}</td>
+    </tr>
+  </table>
